@@ -5,11 +5,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Chrome {
 
     private static WebDriver driver;
-    private String CHROME_PATH = "C:/chromedriver/chromedriver.exe";
 
     public WebDriver getChromeDriver() {
-        System.setProperty("webdriver.chrome.driver", CHROME_PATH);
+        if (driver != null)
+            return driver;
 
+        System.setProperty("webdriver.chrome.driver", "C:/chromedriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
